@@ -7,4 +7,7 @@ Store configuration data in the Umbraco database
 - Booleans
 
 ## Dashboard
-![Settings Dashboard](Documentation/images/dashboard.png)
+![Settings Dashboard](/Documentation/images/dashboard.png)
+
+### Add Property
+![Add Property](/Documentation/images/overlay.png)
