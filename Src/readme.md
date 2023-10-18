@@ -5,3 +5,6 @@ Store configuration data in the Umbraco database
 - String (Can be encrypted)
 - Numbers
 - Booleans
+
+## Dashboard
+![Settings Dashboard](Documentation/images/dashboard.png)
