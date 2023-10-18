@@ -1,0 +1,66 @@
+<div class="welcome-dashboard" ng-controller="ConfigDashboardController as vm">
+
+    <umb-load-indicator ng-if="vm.loading">
+    </umb-load-indicator>
+
+    <umb-box ng-if="!vm.loading">
+        <umb-box-content >
+            <umb-button action="vm.onButtonClick()"
+                        label="Add Property"
+                        state="vm.configSettingStatus"
+                        type="button"
+                        button-style="action">
+            </umb-button>
+        </umb-box-content>
+
+
+    </umb-box>
+    <umb-box ng-if="!vm.loading">
+        <umb-box-content>
+            <umb-box ng-if="!vm.loading">
+                <div ng-repeat="group in vm.groups[0]">
+                    <umb-box ng-show="!vm.groups.length">
+                        <umb-box-content>
+                            No settings defined, you can add values in the config Tab
+                        </umb-box-content>
+                    </umb-box>
+                    <umb-box ng-show="vm.groups.length">
+                        <umb-box-header title="{{group}}" class="btn-color-grey"><umb-icon icon="icon-vcard" class="medium"></umb-icon></umb-box-header>
+                        <umb-box-content>
+                            <div ng-repeat="prop in vm.config | filter : { Group: group }">
+                                <umb-control-group class="form-group" ng-show="prop.Type !== 'checkbox'" label="{{prop.Label}}" description="{{prop.Name}}">
+
+                                    <input ng-model="prop.Value" type="{{prop.Type}}" class="umb-property-editor umb-textstring textstring" value="{{prop.Value}}">
+                                    <umb-icon icon="icon-check" class="medium color-green cursor-hand btn" style="margin-bottom: 10px;" title="Save value" ng-click="vm.saveConfig(prop.Name)"></umb-icon>
+                                    <umb-icon icon="icon-trash" class="medium color-red cursor-hand btn" style="margin-bottom: 10px;" title="Delete Variable. (removes the variable from config table)" ng-click="vm.deleteConfig(prop.Name)"></umb-icon>
+
+                                </umb-control-group>
+                                <div class="form-group" ng-show="prop.Type === 'checkbox'">
+                                    <div class="col-md-6">
+                                        <div ng-show="prop.Type === 'checkbox'">
+                                            <umb-control-group label="{{prop.Label}}" description="{{prop.Name}}">
+                                                <umb-toggle style="display: inline-flex"
+                                                            checked="prop.Value == 1"
+                                                            on-click="vm.updateConfigBool(prop)"
+                                                            label-on="on"
+                                                            label-off="off"></umb-toggle>
+                                                <umb-icon icon="icon-check" class="medium color-green cursor-hand btn" title="Save value" ng-click="vm.saveConfig(prop.Name)"></umb-icon>
+                                                <umb-icon icon="icon-trash" class="medium color-red cursor-hand btn" title="Delete Variable. (removes the variable from config table)" ng-click="vm.deleteConfig(prop.Name)"></umb-icon>
+                                            </umb-control-group>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <button class="btn btn-warning" href="#" ng-click="vm.saveConfig(group)">
+                                    &nbsp;Save group
+                                </button>
+                            </div>
+                        </umb-box-content>
+                    </umb-box>
+                </div>
+            </umb-box>
+
+        </umb-box-content>
+    </umb-box>
+</div>

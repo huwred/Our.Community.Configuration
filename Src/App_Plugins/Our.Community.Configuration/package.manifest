@@ -1,0 +1,26 @@
+{
+  "id": "Our.Community.Configuration",
+  "name": "Our.Community.Configuration",
+  "allowPackageTelemetry": true,
+
+  "dashboards": [
+    {
+      "alias": "OurConfigDashboard",
+      "view": "/App_Plugins/Our.Community.Configuration/dashboard.html",
+      "sections": [ "settings" ],
+      "weight": -10,
+      "access": [
+
+        { "grant": "admin" }
+      ]
+    }
+  ],
+  "javascript": [
+    "~/App_Plugins/Our.Community.Configuration/dashboard.controller.js",
+    "~/App_Plugins/Our.Community.Configuration/customconfig.resources.js",
+    "~/App_Plugins/Our.Community.Configuration/overlay/overlay.controller.js"
+  ],
+  "css": [
+    "~/App_Plugins/Our.Community.Configuration/dashboard.css"
+  ]
+}

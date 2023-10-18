@@ -1,0 +1,22 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ContentTargetFolders>.</ContentTargetFolders>
+    <Product>Our.Community.Configuration</Product>
+    <PackageId>Our.Community.Configuration</PackageId>
+    <Title>Our.Community.Configuration</Title>
+    <Description>Store configuration data in the Umbraco database</Description>
+    <PackageTags>umbraco plugin package</PackageTags>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Effortless.Net.Core.Encryption" Version="1.3.1" />
+    <PackageReference Include="Umbraco.Cms.Web.Website" Version="10.7.0" />
+    <PackageReference Include="Umbraco.Cms.Web.BackOffice" Version="10.7.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="App_Plugins\Our.Community.Configuration\**" ExcludeFromSingleFile="true" CopyToPublishDirectory="Always" />
+    <None Include="buildTransitive\**" Pack="true" PackagePath="buildTransitive" />
+  </ItemGroup>
+</Project>

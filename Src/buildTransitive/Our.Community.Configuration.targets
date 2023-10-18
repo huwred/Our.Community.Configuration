@@ -1,0 +1,21 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <OurCommunityConfigurationContentFilesPath>$(MSBuildThisFileDirectory)..\App_Plugins\Our.Community.Configuration\**\*.*</OurCommunityConfigurationContentFilesPath>
+  </PropertyGroup>
+
+  <Target Name="CopyOurCommunityConfigurationAssets" BeforeTargets="Build">
+    <ItemGroup>
+      <OurCommunityConfigurationContentFiles Include="$(OurCommunityConfigurationContentFilesPath)" />
+    </ItemGroup>
+    <Message Text="Copying Our.Community.Configuration files: $(OurCommunityConfigurationContentFilesPath) - #@(OurCommunityConfigurationContentFiles->Count()) files" Importance="high" />
+    <Copy SourceFiles="@(OurCommunityConfigurationContentFiles)" DestinationFiles="@(OurCommunityConfigurationContentFiles->'$(MSBuildProjectDirectory)\App_Plugins\Our.Community.Configuration\%(RecursiveDir)%(Filename)%(Extension)')" SkipUnchangedFiles="true" />
+  </Target>
+
+  <Target Name="ClearOurCommunityConfigurationAssets" BeforeTargets="Clean">
+    <ItemGroup>
+      <OurCommunityConfigurationDir Include="$(MSBuildProjectDirectory)\App_Plugins\Our.Community.Configuration\" />
+    </ItemGroup>
+    <Message Text="Clear old Our.Community.Configuration data" Importance="high" />
+    <RemoveDir Directories="@(OurCommunityConfigurationDir)" />
+  </Target>
+</Project>

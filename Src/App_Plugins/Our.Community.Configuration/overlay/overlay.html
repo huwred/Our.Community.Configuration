@@ -1,0 +1,105 @@
+﻿<div class="welcome-dashboard" ng-controller="ConfigOverlayController as vm">
+    <umb-box>
+        <umb-box-content>
+            <div class="control-group umb-control-group">
+                <div class="umb-el-wrap">
+                    <div class="control-header" aria-hidden="false">
+                        <label class="control-label ng-binding" for="vcGroup" title="Group">Group</label>
+                    </div>
+                    <div class="controls">
+                        <ng-form name="textboxFieldForm" class="ng-valid-required">
+                            <input type="text" placeholder="Used to separate into sections for the Settings page" id="vcGroup" name="group" class="umb-property-editor umb-textstring textstring ng-valid-required" ng-model="vm.configSetting.Group" maxlength="20">
+                        </ng-form>
+                    </div>
+
+                </div>
+            </div>
+            <div class="control-group umb-control-group">
+                <div class="umb-el-wrap">
+                    <div class="control-header" aria-hidden="false">
+                        <label class="control-label ng-binding" for="vcName" title="Property Alias">Alias</label>
+                    </div>
+                    <div class="controls">
+                        <ng-form name="textboxFieldForm" class="ng-valid-required">
+                            <input type="text" placeholder="Alias of the property." id="vcName" name="vm.ConfigSetting.name" class="umb-property-editor umb-textstring textstring ng-valid-required" ng-model="vm.configSetting.Name" maxlength="50" required>
+                        </ng-form>
+                    </div>
+                </div>
+            </div>
+            <div class="control-group umb-control-group">
+                <div class="umb-el-wrap">
+                    <div class="control-header" aria-hidden="false">
+                        <label class="control-label ng-binding" for="vcLabel" title="Label">Label</label>
+                    </div>
+                    <div class="controls">
+                        <ng-form name="textboxFieldForm" class="ng-valid-required">
+                            <input type="text" placeholder="Display label" id="vcLabel" name="label" class="umb-property-editor umb-textstring textstring ng-valid-required" ng-model="vm.configSetting.Label" maxlength="100">
+                        </ng-form>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="control-group umb-control-group">
+                <div class="umb-el-wrap">
+                    <div class="control-header" aria-hidden="false">
+                        <umb-button type="button"
+                                    label="Select Type"
+                                    action="vm.toggle()">
+                        </umb-button>
+
+                        <umb-dropdown ng-if="vm.dropdownOpen" on-close="vm.close()" umb-keyboard-list>
+                            <umb-dropdown-item ng-repeat="item in vm.varType">
+                                <button type="button" class="btn-reset" ng-click="vm.selectType(vm.configSetting,item)">{{ item.name }}</button>
+                            </umb-dropdown-item>
+                        </umb-dropdown>
+                    </div>
+                    <div class="controls">
+
+                        <label>{{vm.configSetting.PropType.name}}</label>
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="control-group umb-control-group" ng-if="vm.configSetting.PropType.value == 0">
+                <div class="umb-el-wrap">
+                    <div class="control-header" aria-hidden="false">
+                        <label class="control-label ng-binding" for="vcEncrypted" title="Encrypt Value">Encrypt</label>
+                    </div>
+                    <div class="controls">
+                        <ng-form name="textboxFieldForm" class="ng-valid-required">
+                            <input id="vcEncrypted" name="encrypted" type="checkbox" class="umb-property-editor umb-checkmark" ng-model="vm.configSetting.Encrypted">
+                        </ng-form>
+                    </div>
+
+                </div>
+            </div>
+            <div class="control-group umb-control-group">
+                <div class="umb-el-wrap">
+                    <div class="control-header" aria-hidden="false">
+                        <label class="control-label ng-binding" for="vcValue" title="Initial Value"> Initial Value </label>
+                    </div>
+                    <div class="controls">
+                        <ng-form name="textboxFieldForm" class="ng-valid-required">
+                            <input type="text" id="vcValue" name="value" class="umb-property-editor umb-textstring textstring ng-valid-required" ng-model="vm.configSetting.Value" maxlength="255">
+                        </ng-form>
+                    </div>
+
+                </div>
+            </div>
+
+
+            <!--<div class="form-group">
+                <umb-button action="vm.newConfig()"
+                            label="Add Variable"
+                            state="vm.configSettingStatus"
+                            type="button"
+                            button-style="action">
+                </umb-button>
+            </div>-->
+
+        </umb-box-content>
+    </umb-box>
+
+</div>
