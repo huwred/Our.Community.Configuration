@@ -9,10 +9,10 @@ This plugin allows you to store configuration data in a custom table in the Umbr
 - Booleans
 
 ## Dashboard
-![Settings Dashboard](/Documentation/images/dashboard.png)
+<img src="/Documentation/images/dashboard.png" width="800" alt="Settings Dashboard" title="Settings Dashboard"/>
 
 ### Add Property
-<img src="/Documentation/images/overlay.png" width="400" alt="Add Property"/>
+<img src="/Documentation/images/overlay.png" width="400" alt="Add Property" title="Add property dialog"/>
 
 
 ## Access properties in code
