@@ -15,23 +15,25 @@ This plugin allows you to store configuration data in a custom table in the Umbr
 ![Add Property](/Documentation/images/overlay.png)
 
 ## Access properties in code
+To access your settings you will need to inject the configuration service.
 ```csharp
 IOurConfiguration ourconfig
 ```
 
-### Get config data
+### Getting config data
 ```csharp
-ourconfig.Get("propAlias"); // Fetches a single config setting
-
-ourconfig.GetConfig(); //Fetches ALL config settings
-
-ourconfig.GetConfigByGroup("TESTGROUP") //Fetch config settings for a specific group
+// Fetch a single config setting
+OurConfigDataSchema setting = ourconfig.Get("propAlias"); 
+//Fetch ALL config settings
+IEnumerable<OurConfigDataSchema> settings = ourconfig.GetConfig(); 
+//Fetch config settings for a specific group
+IEnumerable<OurConfigDataSchema> settings = ourconfig.GetConfigByGroup("TESTGROUP") 
 ```
 
-### Gat a value
+### Retrieving a value
+Returns an object of the required type (string,int,bool), it will also return the decrypted value if the property is being stored with encryption.
 ```csharp
-// returns an object of the required type (string,int,bool), it will also return the decrypted value
-// if the property is being stored with encryption.
-ourconfig.Value();
+
+var setting = ourconfig.Value();
 
 ```
