@@ -1,7 +1,6 @@
 # Our.Community.Configuration
-Store configuration data in the Umbraco database.
 
-This plugin allows you to store configuration data in a custom table in the Umbraco database. 
+This package creates a custom table in the Umbraco database for storing configuration data. 
 
 ## Supported data types
 - Strings (can be encrypted)
