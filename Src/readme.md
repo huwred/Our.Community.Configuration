@@ -12,7 +12,8 @@ This plugin allows you to store configuration data in a custom table in the Umbr
 ![Settings Dashboard](/Documentation/images/dashboard.png)
 
 ### Add Property
-![Add Property](/Documentation/images/overlay.png)
+<img src="/Documentation/images/overlay.png" width="400" alt="Add Property"/>
+
 
 ## Access properties in code
 To access your settings you will need to inject the configuration service.
