@@ -36,7 +36,7 @@ namespace Our.Community.Configuration.Service
         /// <summary>
         /// Cached Dictionary of Config values
         /// </summary>
-        public List<OurConfigDataSchema> GetConfig()
+        public IEnumerable<OurConfigDataSchema> GetConfig()
         {
             RefreshCache();
             var config = new List<OurConfigDataSchema>();
@@ -61,7 +61,7 @@ namespace Our.Community.Configuration.Service
                 return config;
             }
         }
-        public List<OurConfigDataSchema> GetConfigByGroup(string groupname)
+        public IEnumerable<OurConfigDataSchema> GetConfigByGroup(string groupname)
         {
             RefreshCache();
             var config = new List<OurConfigDataSchema>();
@@ -200,7 +200,7 @@ namespace Our.Community.Configuration.Service
 
             if (newconfig.Encrypted)
             {
-                if (newconfig.Value != null)
+                if (!String.IsNullOrWhiteSpace(newconfig.Value))
                     newconfig.Value = Strings.Encrypt(newconfig.Value.ToString(),password,newconfig.Key,iv,Bytes.KeySize.Size256,6);
             }
             using var scope = _scopeProvider.CreateScope(autoComplete: true);

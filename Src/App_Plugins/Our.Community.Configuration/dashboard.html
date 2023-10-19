@@ -28,7 +28,7 @@
                         <umb-box-header title="{{group}}" class="btn-color-grey"><umb-icon icon="icon-vcard" class="medium"></umb-icon></umb-box-header>
                         <umb-box-content>
                             <div ng-repeat="prop in vm.config | filter : { Group: group }">
-                                <umb-control-group class="form-group" ng-show="prop.Type !== 'checkbox'" label="{{prop.Label}}" description="{{prop.Name}}">
+                                <umb-control-group class="form-group" ng-show="prop.Type !== 'checkbox'" label="{{prop.Name}} ({{prop.Alias}})" description="{{prop.Label}}">
 
                                     <input ng-model="prop.Value" type="{{prop.Type}}" class="umb-property-editor umb-textstring textstring" value="{{prop.Value}}">
                                     <umb-icon icon="icon-check" class="medium color-green cursor-hand btn" style="margin-bottom: 10px;" title="Save value" ng-click="vm.saveConfig(prop.Name)"></umb-icon>
@@ -38,7 +38,7 @@
                                 <div class="form-group" ng-show="prop.Type === 'checkbox'">
                                     <div class="col-md-6">
                                         <div ng-show="prop.Type === 'checkbox'">
-                                            <umb-control-group label="{{prop.Label}}" description="{{prop.Name}}">
+                                            <umb-control-group label="{{prop.Name}}" description="{{prop.Label}}">
                                                 <umb-toggle style="display: inline-flex"
                                                             checked="prop.Value == 1"
                                                             on-click="vm.updateConfigBool(prop)"

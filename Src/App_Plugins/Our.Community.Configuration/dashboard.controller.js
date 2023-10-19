@@ -10,6 +10,7 @@ angular.module("umbraco").controller("ConfigDashboardController", function ($sco
 
     vm.configSetting = {
         Name: "",
+        Alias:"",
         Label: "",
         Value: "",
         Encrypted: false,
@@ -41,7 +42,7 @@ angular.module("umbraco").controller("ConfigDashboardController", function ($sco
         ConfigResource.getCustomConfig().then(function (response) {
             vm.config = [];
             angular.forEach(angular.fromJson(response.data), function (item) {
-
+                console.log(item);
                 var inputType = "text";
                 if (item.type === 1) {
                     inputType = "number";
@@ -52,7 +53,7 @@ angular.module("umbraco").controller("ConfigDashboardController", function ($sco
                 if (item.type === 2) {
                     inputType = "checkbox";
                 }
-                vm.config.push({ Name: item.name, Value: item.value, Label: item.label, Group: item.group, Type: inputType, PropType: item.type, Key: item.key });
+                vm.config.push({ Name: item.name,Alias: item.alias, Value: item.value, Label: item.label, Group: item.group, Type: inputType, PropType: item.type, Key: item.key });
 
             });
             getGroups();

@@ -22,6 +22,13 @@ namespace Our.Community.Configuration.Models
         [Required]
         [Length(50)]
         public string Name { get; set; }
+        [NPoco.Ignore]
+        public string Alias {
+            get
+            {
+                var alias = Name.Replace(" ", "");
+                return char.ToLower(alias[0]) + alias.Substring(1);
+            } }
 
         [NPoco.Column("StringValue")]
         public string Value { get; set; }

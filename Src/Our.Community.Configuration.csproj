@@ -1,12 +1,16 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
+    <Version>1.0.0-rc1</Version>
     <ContentTargetFolders>.</ContentTargetFolders>
     <Product>Our.Community.Configuration</Product>
     <PackageId>Our.Community.Configuration</PackageId>
     <Title>Our.Community.Configuration</Title>
     <Description>Store configuration data in the Umbraco database</Description>
-    <PackageTags>umbraco plugin package</PackageTags>
+    <PackageTags>umbraco-marketplace umbraco plugin package</PackageTags>
+    <RepositoryUrl>https://github.com/huwred/Our.Community.Configuration</RepositoryUrl>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageReadmeFile>readme.md</PackageReadmeFile>
   </PropertyGroup>
 
   <ItemGroup>
@@ -19,4 +23,13 @@
     <Content Include="App_Plugins\Our.Community.Configuration\**" ExcludeFromSingleFile="true" CopyToPublishDirectory="Always" />
     <None Include="buildTransitive\**" Pack="true" PackagePath="buildTransitive" />
   </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="readme.md" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="readme.md" />
+  </ItemGroup>
+
 </Project>

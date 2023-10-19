@@ -24,7 +24,7 @@ namespace Our.Community.Configuration.Controllers
 
 
         [HttpGet]
-        public List<OurConfigDataSchema> Config()
+        public IEnumerable<OurConfigDataSchema> Config()
         {
             return _ourConfig.GetConfig();
         }
@@ -41,10 +41,9 @@ namespace Our.Community.Configuration.Controllers
         /// </summary>
         /// <param name="config"></param>
         [HttpPost]
-        public List<OurConfigDataSchema> Create(OurConfigDataSchema config)
+        public IEnumerable<OurConfigDataSchema> Create(OurConfigDataSchema config)
         {
-            //strip Spaces from the name
-            config.Name = config.Name.Replace(" ", "");
+            
             //Generate a Key for encrypting
             config.Key = Guid.NewGuid().ToString();
             _ourConfig.Create(config);

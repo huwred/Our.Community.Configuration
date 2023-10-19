@@ -17,8 +17,8 @@ namespace Our.Community.Configuration.Interfaces
 
         string GetDecryptedValue(string fieldname);
 
-        List<OurConfigDataSchema> GetConfig();
-        List<OurConfigDataSchema> GetConfigByGroup(string groupname);
+        IEnumerable<OurConfigDataSchema> GetConfig();
+        IEnumerable<OurConfigDataSchema> GetConfigByGroup(string groupname);
 
         void Create(OurConfigDataSchema newconfig);
         void Update(string name, string value, string key, bool encrypted = false);
