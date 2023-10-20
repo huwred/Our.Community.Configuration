@@ -264,7 +264,7 @@ namespace Our.Community.Configuration.Service
                     _logger.LogError(e,"Error decrypting data");
 
                 }
-                values.Add(item.Name, item);
+                values.Add(item.Alias, item);
             }
             return values;
         }
