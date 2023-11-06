@@ -10,6 +10,7 @@
   "Description": "Store configuration data in Umbraco database",
   "LicenseTypes": [ "Free" ],
   "IssueTrackerUrl": "https://github.com/huwred/Our.Community.Configuration/issues",
-  "PackageType": "Package"
-  "Category" : "Developer Tools"
+  "PackageType": "Package",
+  "Category" : "Developer Tools",
+  "Tags": ["Config", "Custom settings"]
 }
