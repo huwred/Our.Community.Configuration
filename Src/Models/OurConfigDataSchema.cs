@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json.Linq;
 using NPoco;
-using System.ComponentModel.DataAnnotations;
 using Umbraco.Cms.Infrastructure.Persistence.DatabaseAnnotations;
+
 
 namespace Our.Community.Configuration.Models
 {
@@ -14,12 +14,12 @@ namespace Our.Community.Configuration.Models
     public class OurConfigDataSchema
     {
         
-        [PrimaryKeyColumn(AutoIncrement = true, IdentitySeed = 1)]
+        [Umbraco.Cms.Infrastructure.Persistence.DatabaseAnnotations.PrimaryKeyColumn(AutoIncrement = true, IdentitySeed = 1)]
         [NPoco.Column("Id")]
         public int Id { get; set; }
 
         [NPoco.Column("Name")]
-        [Required]
+        [System.ComponentModel.DataAnnotations.Required]
         [Length(50)]
         public string Name { get; set; }
         [NPoco.Ignore]
