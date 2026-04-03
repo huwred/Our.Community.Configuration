@@ -1,4 +1,4 @@
-# Our.Community.Configuration
+# Our.Community.Configuration - Umbraco 17+
 Store configuration data in the Umbraco database.
 
 This plugin allows you to store configuration data in a custom table in the Umbraco database. 
