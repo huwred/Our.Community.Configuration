@@ -10,6 +10,7 @@
     <PackageTags>umbraco-marketplace umbraco plugin package</PackageTags>
     <RepositoryUrl>https://github.com/huwred/Our.Community.Configuration</RepositoryUrl>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
+	<PackageIcon>icon.png</PackageIcon>
     <PackageReadmeFile>readme.md</PackageReadmeFile>
   </PropertyGroup>
 
