@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFrameworks>net6.0;net7.0;net8.0</TargetFrameworks>
-    <Version>2.0.0</Version>
+    <Version>3.0.0</Version>
     <ContentTargetFolders>.</ContentTargetFolders>
     <Product>Our.Community.Configuration</Product>
     <PackageId>Our.Community.Configuration</PackageId>
@@ -35,11 +35,33 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Remove="Composers\**" />
+    <Compile Remove="Interfaces\**" />
+    <Compile Remove="Migrations\**" />
+    <Compile Remove="Models\**" />
+    <Compile Remove="Service\**" />
+    <EmbeddedResource Remove="Composers\**" />
+    <EmbeddedResource Remove="Interfaces\**" />
+    <EmbeddedResource Remove="Migrations\**" />
+    <EmbeddedResource Remove="Models\**" />
+    <EmbeddedResource Remove="Service\**" />
+    <None Remove="Composers\**" />
+    <None Remove="Interfaces\**" />
+    <None Remove="Migrations\**" />
+    <None Remove="Models\**" />
+    <None Remove="Service\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Remove="readme.md" />
   </ItemGroup>
 
   <ItemGroup>
     <Content Include="readme.md" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Our.Community.Configuration.Common\Our.Community.Configuration.Common.csproj" />
   </ItemGroup>
 
 </Project>
