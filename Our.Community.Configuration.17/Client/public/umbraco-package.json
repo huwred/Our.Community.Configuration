@@ -1,0 +1,14 @@
+{
+  "id": "Our.Community.Configuration",
+  "name": "Our.Community.Configuration",
+  "version": "0.0.1",
+  "allowTelemetry": true,
+  "extensions": [
+    {
+      "name": "Our Community Configuration Bundle",
+      "alias": "Our.Community.Configuration.Bundle",
+      "type": "bundle",
+      "js": "/App_Plugins/OurCommunityConfiguration/our-community-configuration-17.js"
+    }
+  ]
+}

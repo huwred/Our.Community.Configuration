@@ -1,0 +1,59 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <RootNamespace>Our.Community.Configuration._17</RootNamespace>
+    <StaticWebAssetBasePath>/</StaticWebAssetBasePath>
+	  <TargetsForTfmSpecificBuildOutput>$(TargetsForTfmSpecificBuildOutput);CopyProjectReferencesToPackage</TargetsForTfmSpecificBuildOutput>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <Version>17.0.5</Version>
+    <ContentTargetFolders>.</ContentTargetFolders>
+    <Product>Our.Community.Configuration</Product>
+    <PackageId>Our.Community.Configuration</PackageId>
+    <Title>Our.Community.Configuration</Title>
+    <Description>Store configuration data in the Umbraco database</Description>
+    <PackageTags>umbraco-marketplace umbraco plugin package</PackageTags>
+    <RepositoryUrl>https://github.com/huwred/Our.Community.Configuration</RepositoryUrl>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageReadmeFile>readme.md</PackageReadmeFile>
+	  <PackageOutputPath>E:\Umbraco-Dev\Nuget</PackageOutputPath>
+  </PropertyGroup>
+	<Target DependsOnTargets="ResolveReferences" Name="CopyProjectReferencesToPackage">
+		<ItemGroup>
+			<BuildOutputInPackage Include="@(ReferenceCopyLocalPaths-&gt;WithMetadataValue('ReferenceSourceTarget', 'ProjectReference'))" />
+		</ItemGroup>
+	</Target>
+
+  <ItemGroup>
+    <PackageReference Include="Effortless.Net.Core.Encryption" Version="1.3.1" />
+    <PackageReference Include="System.Runtime.Caching" Version="10.0.5" />
+    <PackageReference Include="Umbraco.Cms.Web.Website" Version="*" />
+    <PackageReference Include="Umbraco.Cms.Web.Common" Version="*" />
+    <PackageReference Include="Umbraco.Cms.Api.Common" Version="*" />
+    <PackageReference Include="Umbraco.Cms.Api.Management" Version="*" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- Dont include the client folder as part of packaging nuget build -->
+    <Content Remove="Client\**" />
+    <Content Include="readme.md" />
+
+    <!-- However make the Umbraco-package.json included for dotnet pack or nuget package and visible to the solution -->
+    <None Include="Client\public\umbraco-package.json" Pack="false" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Our.Community.Configuration.Common\Our.Community.Configuration.Common.csproj">
+	  <ReferenceOutputAssembly>true</ReferenceOutputAssembly>
+	  <IncludeAssets>Our.Community.Polls.Core.dll</IncludeAssets>
+	  </ProjectReference>
+  </ItemGroup>
+
+</Project>
