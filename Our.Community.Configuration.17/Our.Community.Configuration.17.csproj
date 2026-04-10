@@ -9,7 +9,7 @@
   </PropertyGroup>
 
   <PropertyGroup>
-    <Version>17.0.5</Version>
+    <Version>17.0.0-rc01</Version>
     <ContentTargetFolders>.</ContentTargetFolders>
     <Product>Our.Community.Configuration</Product>
     <PackageId>Our.Community.Configuration</PackageId>
@@ -19,8 +19,10 @@
     <RepositoryUrl>https://github.com/huwred/Our.Community.Configuration</RepositoryUrl>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageReadmeFile>readme.md</PackageReadmeFile>
+	  <PackageIcon>icon.png</PackageIcon>
 	  <PackageOutputPath>E:\Umbraco-Dev\Nuget</PackageOutputPath>
   </PropertyGroup>
+	
 	<Target DependsOnTargets="ResolveReferences" Name="CopyProjectReferencesToPackage">
 		<ItemGroup>
 			<BuildOutputInPackage Include="@(ReferenceCopyLocalPaths-&gt;WithMetadataValue('ReferenceSourceTarget', 'ProjectReference'))" />
@@ -30,19 +32,19 @@
   <ItemGroup>
     <PackageReference Include="Effortless.Net.Core.Encryption" Version="1.3.1" />
     <PackageReference Include="System.Runtime.Caching" Version="10.0.5" />
-    <PackageReference Include="Umbraco.Cms.Web.Website" Version="*" />
-    <PackageReference Include="Umbraco.Cms.Web.Common" Version="*" />
-    <PackageReference Include="Umbraco.Cms.Api.Common" Version="*" />
-    <PackageReference Include="Umbraco.Cms.Api.Management" Version="*" />
+
+    <PackageReference Include="Umbraco.Cms.Api.Common" Version="17.0.0" />
+    <PackageReference Include="Umbraco.Cms.Api.Management" Version="17.0.0" />
   </ItemGroup>
 
   <ItemGroup>
     <!-- Dont include the client folder as part of packaging nuget build -->
     <Content Remove="Client\**" />
-    <Content Include="readme.md" />
 
     <!-- However make the Umbraco-package.json included for dotnet pack or nuget package and visible to the solution -->
     <None Include="Client\public\umbraco-package.json" Pack="false" />
+	<None Include="icon.png" Pack="true" PackagePath="" />
+	  <None Include="readme.md" Pack="true" PackagePath="" />
   </ItemGroup>
 
   <ItemGroup>

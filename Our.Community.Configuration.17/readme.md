@@ -9,10 +9,10 @@ This plugin allows you to store configuration data in a custom table in the Umbr
 - Booleans
 
 ## Dashboard
-<img src="https://github.com/huwred/Our.Community.Configuration/blob/main/Documentation/images/dashboard.png?raw=true" width="800" alt="Settings Dashboard" title="Settings Dashboard"/>
+![Settings](https://github.com/huwred/Our.Community.Configuration/blob/main/Documentation/images/dashboard.png?raw=true "Settings Dashboard")
 
 ### Add Property
-<img src="https://github.com/huwred/Our.Community.Configuration/blob/main/Documentation/images/overlay.png?raw=true" width="400" alt="Add Property" title="Add property dialog"/>
+![Property](https://github.com/huwred/Our.Community.Configuration/blob/main/Documentation/images/overlay.png?raw=true "Add Property")
 
 
 ## Access properties in code
@@ -35,6 +35,20 @@ IEnumerable<OurConfigDataSchema> settings = ourconfig.GetConfigByGroup("TESTGROU
 Returns an object of the required type (string,int,bool), it will also return the decrypted value if the property is being stored with encryption.
 ```csharp
 
-var setting = ourconfig.Value();
+var setting = ourconfig.Value(fieldname);
 
 ```
+
+## OurConfigDataSchema
+
+| Property | Type | Description |
+|----------|------|-------------|
+| `Id` | `int` | The unique identifier for the configuration entry |
+| `Alias` | `string` | The unique alias used to retrieve the setting |
+| `Name` | `string` | The display name of the setting |
+| `Value` | `string` | The stored value (encrypted if `Encrypted` is `true`) |
+| `DataType` | `string` | The data type of the value (`string`, `int`, `bool`) |
+| `Group` | `string` | The group the setting belongs to |
+| `Encrypted` | `bool` | Indicates whether the value is stored with encryption |
+
+### Example usage

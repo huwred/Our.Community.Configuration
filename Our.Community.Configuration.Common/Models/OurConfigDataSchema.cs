@@ -31,7 +31,7 @@ namespace Our.Community.Configuration.Models
             } }
 
         [NPoco.Column("StringValue")]
-        public string Value { get; set; }
+        public string? Value { get; set; }
 
         [NPoco.Column("Label")]
         [Length(100)]
