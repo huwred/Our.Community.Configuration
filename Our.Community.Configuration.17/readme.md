@@ -1,4 +1,7 @@
 # Our.Community.Configuration - Umbraco 17+
+[![Platform](https://img.shields.io/badge/Umbraco-17-%233544B1?style=flat&logo=umbraco)](https://umbraco.com/products/umbraco-cms/)
+[![GitHub](https://img.shields.io/github/license/huwred/Our.Community.Configuration?label=license&style=flat)](https://github.com/huwred/Our.Community.Configuration/blob/LICENSE)
+
 Store configuration data in the Umbraco database.
 
 This plugin allows you to store configuration data in a custom table in the Umbraco database. 
